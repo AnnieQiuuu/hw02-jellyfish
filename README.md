@@ -1,7 +1,8 @@
 # Procedural Jellyfish
 
+
 ## Project Overview
-This a procedural jellyfish using Houdini. 
+This project documents the creation of a fully procedural jellyfish in Houdini, combining node-based modeling, simulation, and rendering workflows.
 
 ### Result
 [![Jellyfish video](./output.gif)](https://youtu.be/pwx2x5fgGWI)
@@ -11,6 +12,46 @@ This a procedural jellyfish using Houdini.
 - Lighting
 - Rendering
 <img height="500" alt="Jellyfish Parts" src="/assets/JellyfishParts.png">
+
+## Veins
+In order to create the veins for the jellyfish, you'll make use of the "Find Shortest Path" node. The Dungeon Corridor example in the Houdini Playground is a helpful reference for using this node. Here is some rough guidance for how to approach making the veins:
+
+Remesh the jellyfish into triangles (otherwise you'll end up with very square looking veins)
+
+<img width="300" alt="Remesh" src="/assets/Remesh.png">
+
+Use the shortest path node to generate veins ([here](https://www.sidefx.com/docs/houdini/nodes/sop/findshortestpath.html) are the docs for the Find Shortest Path node)
+
+<img width="300" alt="ShortestPath" src="/assets/ShortestPath.png">
+
+Smooth out the veins for a more organic look. You might find yourself needing the "resample" and "fuse" nodes in addition to the "smooth" node (and remember, the [docs](https://www.sidefx.com/docs/houdini/nodes/sop/index.html) are a great resource if you're confused about what a node does or how to use it)
+
+<img width="300" alt="ResampleFuseSmooth" src="/assets/ResampleFuseSmooth.png">
+
+Use a "sweep" node to give the veins width
+
+<img width="300" alt="Sweep" src="/assets/Sweep.png">
+
+Lastly, stick the veins to the bell's animation using the "Point Deform" node that we used on the arms. The final result should look something like this:
+
+<img width="300" alt="VeinsGif" src="/assets/VeinsGif.gif">
+
+## Organs
+The internal organs of the jellyfish were modeled procedurally with full creative freedom. Various geometry nodes and noise-based deformations were used to construct organic shapes, ensuring they integrated visually with the bell’s translucent structure.
+<img width="300" alt="Organs" src="/assets/Organs.png">
+
+
+## Tentacles
+Creating the tentacles required abstracting generalizable techniques from a hair-simulation tutorial. Rather than replicating the workflow directly, the project focused on extracting relevant simulation principles and adapting them to Houdini.
+
+<img width="300" alt="TentaclesGif" src="/assets/TentaclesGif.gif">
+
+[This video](https://www.youtube.com/watch?v=LN4XXaHQkmU) demonstrates how to simulate hairs to create renders like this:
+
+<img width="300" alt="HairRender3" src="/assets/HairRender1.png">
+<img width="300" alt="HairRender2" src="/assets/HairRender2.png">
+<img width="300" alt="HairRender1" src="/assets/HairRender3.png">
+
 
 ---
 
