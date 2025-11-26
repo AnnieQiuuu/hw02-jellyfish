@@ -38,6 +38,7 @@ Lastly, stick the veins to the bell's animation using the "Point Deform" node th
 
 ## Organs
 The internal organs of the jellyfish were modeled procedurally with full creative freedom. Various geometry nodes and noise-based deformations were used to construct organic shapes, ensuring they integrated visually with the bell’s translucent structure.
+
 <img width="300" alt="Organs" src="/assets/Organs.png">
 
 
